@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess Number</title>
+	<script type="text/javascript" src="scripts/angular.js"> </script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+	<link rel="shortcut icon" href="Images/k.ico">
+
+</head>
+<body ng-app="MyApp">
+<div ng-controller="GameController">
+<div class="container">
+	<h1> My Game</h1>
+	<label> your guess</label><input type="number" name="guess" ng-model="guess"/>
+	<button class="btn btn-primary btn-sm" ng-click="verify()">Verify</button>
+	<button class="btn btn btn-warning btn-sm" ng-click="initGame()"> Restart</button>
+	<p>
+		<span ng-show="deviation > 0" class="alert alert-warning"> Your  guess is Lower</span>
+		<span ng-show="deviation < 0" class="alert alert-warning"> Your  guess is Higher</span>
+		<span ng-show="deviation === 0" class="alert alert-success"> Your  guess is Correct</span>
+
+	</p>
+	<p class="text-info"> No of guesses::<span class="badge">{{trails}}</span></p>
+	<p class="text-info"> Original::<span class="badge">{{origional}}</span></p>
+</div>
+</div>
+</body>
+</html>

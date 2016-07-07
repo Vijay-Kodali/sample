@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Display Employees</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <script type="text/javascript" src="scripts/angular.js"></script>
+    <link rel="shortcut icon" href="Images/k.ico">
+    
+    <script type="text/javascript">
+        var app = angular.module("myApp",[]);
+        app.controller("EmpCtrl", function($scope) {
+            $scope.emps = [
+
+                {
+                    name: "kodali",
+                    job: "Manager",
+                    salary: 1000,
+                    pic: "male.jpg"
+                }, {
+                    name: "vijay",
+                    job: "Team Lead",
+                    salary: 9000,
+                    pic: "male.jpg"
+                }, {
+                    name: "radha",
+                    job: "Manager",
+                    salary: 2000,
+                    pic: "female.jpg"
+                }, {
+                    name: "ravi",
+                    job: "SSE",
+                    salary: 3000,
+                    pic: "male.jpg"
+                }, {
+                    name: "venky",
+                    job: "SE",
+                    salary: 5000,
+                    pic: "male.jpg"
+                }, {
+                    name: "rama",
+                    job: "Manager",
+                    salary: 2500,
+                    pic: "female.jpg"
+                }, {
+                    name: "vinod",
+                    job: "DBA",
+                    salary: 6200,
+                    pic: "male.jpg"
+                }, {
+                    name: "satish",
+                    job: "SSE",
+                    salary: 4200,
+                    pic: "male.jpg"
+                }, {
+                    name: "raji",
+                    job: "Manager",
+                    salary: 7000,
+                    pic: "female.jpg"
+                }, {
+                    name: "samba",
+                    job: "SE",
+                    salary: 3200,
+                    pic: "male.jpg"
+                }, {
+                    name: "bhanu",
+                    job: "DBA",
+                    salary: 4050,
+                    pic: "male.jpg"
+                }, {
+                    name: "bujji",
+                    job: "Manager",
+                    salary: 1000,
+                    pic: "male.jpg"
+                }
+            ];
+            $scope.mode = "List";
+            $scope.isRev = false;
+            $scope.sorttext = "name";
+            $scope.obj = {
+                name: "",
+                job: "",
+                salary: ""
+            };
+        });
+    </script>
+</head>
+
+<body ng-app="myApp" bgcolor="#ffffe0">
+
+    <div ng-controller="EmpCtrl">
+
+        <h1>Kodali's Orgnization</h1>
+        <img src="Images/list.png" ng-mouseover="mode='List'" ng-class="{imgc1:true}" />
+        <img src="Images/table.png" ng-mouseover="mode='Details'" ng-class="{imgc1:true}" />
+        <img src="Images/grid.png" ng-mouseover="mode='LargeIcons'" ng-class="{imgc1:true}" />
+
+        <div ng-switch="mode">
+            <div ng-switch-when="List">
+                <h2>List View</h2>
+                <ol>
+                    <li ng-repeat="item in emps" ng-class-even="{liceven:true}" ng-class-odd="{licodd:true}">
+                        {{item.name}}({{item.job}})
+                    </li>
+                </ol>
+
+            </div>
+            <div ng-switch-when="Details">
+                <h2>Details View</h2>
+                <table border="2">
+                    <tr>
+                        <th><a href="#" ng-click="sorttext='name';isRev=!isRev"> Emp Name</a>
+                        <br />
+                        <input type="text" ng-model="obj.name">
+                        </th>
+                        <th> <a href="#" ng-click="sorttext='job';isRev=!isRev">Job </a>
+                        <br />
+                        <select ng-model="obj.job">
+                                <option value="">All Emp</option>
+                                <option>Manager</option>
+                                <option>DBA</option>
+                                <option>SE</option>
+                                <option>SSE</option>
+                            </select>
+                        </th>
+                        <th> <a href="#" ng-click="sorttext='salary';isRev=!isRev">Salary</a>
+                        <br />
+                        <input type="text" ng-model="obj.salary">
+                        </th>
+                        <th>Picture</th>
+                    </tr>
+                    <tr ng-repeat="item in emps | filter:obj | orderBy : sorttext:isRev" ng-class-even="{liceven:true}" ng-class-odd="{licodd:true}">
+                        <td>{{item.name}}</td>
+                        <td>{{item.job}}</td>
+                        <td>{{item.salary |currency}}</td>
+                        <td ><img ng-src="Images/{{item.pic}}" ng-class="{imgc2:true}"> </td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-switch-when="LargeIcons">
+                <h2>Grid View</h2>
+                <div ng-repeat="item in emps" ng-class="{divClass:true}">
+                    <span>{{item.name}}</span>
+                    <img ng-src="Images/{{item.pic}}" ng-class="{imgc3:true}">
+                    <span>{{item.job}}</span>
+                    <span>{{item.salary | currency:"&#8377;"}}</span>
+                </div>
+            </div>
+        </div>
+        <span>@powered By Mr Kodali</span>
+</body>
+
+</html>

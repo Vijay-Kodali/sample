@@ -1,0 +1,49 @@
+ol{
+            width: 300px
+        }
+
+        .imgc1 {
+            width: 40px;
+            height: 40px;
+            border: 2px solid Blue
+        }
+        
+        .imgc2 {
+            width: 45px;
+            height: 60px;
+            border: 2px solid Blue
+        }
+        
+        .liceven {
+            background-color: LightBlue;
+            padding: 2px;
+            margin: 3px;
+            border: 2px solid Blue
+        }
+        
+        .licodd {
+            background-color: plum;
+            padding: 2px;
+            margin: 3px;
+            border: 2px solid Blue
+        }
+        
+        .imgc3 {
+            width: 60px;
+            height: 80px;
+            border: 2px solid Blue
+        }
+        
+        .divClass {
+
+            border: 1px solid rgb(212,212,212);
+            width: 200px; 
+            float: left;
+            height: 100px;
+            background-color: LightBlue;
+            padding: 2px;
+            margin: 3px;
+            text-align: center;
+            border: 3px solid plum
+           
+        }

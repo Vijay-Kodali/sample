@@ -13,3 +13,77 @@ app.controller("GameController", function ($scope) {
 	}
 	$scope.initGame();
 });
+app.controller("EmpCtrl", function($scope) {
+            $scope.emps = [
+
+                {
+                    name: "kodali",
+                    job: "Manager",
+                    salary: 1000,
+                    pic: "male.jpg"
+                }, {
+                    name: "vijay",
+                    job: "Team Lead",
+                    salary: 9000,
+                    pic: "male.jpg"
+                }, {
+                    name: "radha",
+                    job: "Manager",
+                    salary: 2000,
+                    pic: "female.jpg"
+                }, {
+                    name: "ravi",
+                    job: "SSE",
+                    salary: 3000,
+                    pic: "male.jpg"
+                }, {
+                    name: "venky",
+                    job: "SE",
+                    salary: 5000,
+                    pic: "male.jpg"
+                }, {
+                    name: "rama",
+                    job: "Manager",
+                    salary: 2500,
+                    pic: "female.jpg"
+                }, {
+                    name: "vinod",
+                    job: "DBA",
+                    salary: 6200,
+                    pic: "male.jpg"
+                }, {
+                    name: "satish",
+                    job: "SSE",
+                    salary: 4200,
+                    pic: "male.jpg"
+                }, {
+                    name: "raji",
+                    job: "Manager",
+                    salary: 7000,
+                    pic: "female.jpg"
+                }, {
+                    name: "samba",
+                    job: "SE",
+                    salary: 3200,
+                    pic: "male.jpg"
+                }, {
+                    name: "bhanu",
+                    job: "DBA",
+                    salary: 4050,
+                    pic: "male.jpg"
+                }, {
+                    name: "bujji",
+                    job: "Manager",
+                    salary: 1000,
+                    pic: "male.jpg"
+                }
+            ];
+            $scope.mode = "List";
+            $scope.isRev = false;
+            $scope.sorttext = "name";
+            $scope.obj = {
+                name: "",
+                job: "",
+                salary: ""
+            };
+        });
